@@ -20,6 +20,15 @@
   opacity: 0.3;
 }
 
+.hero-bg-blur {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: -1;
+  pointer-events: none;
+}
+
 .hero-bg-shapes {
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
@@ -79,11 +88,26 @@
   color: transparent;
   -webkit-text-stroke: 2px var(--text-secondary);
   transition: all 0.3s ease;
+  white-space: nowrap; /* Prevents word wrapping mid-typing which changes height */
 }
 
 .outline-text:hover {
   -webkit-text-stroke: 2px var(--accent);
   text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.typed-cursor {
+  font-weight: 200;
+  color: var(--accent);
+  line-height: 1;
+}
+
+.typed-wrapper {
+  display: inline-block;
+  min-width: 8em; /* Holds the longest string securely regardless of font size */
+  text-align: left;
+  white-space: nowrap; /* Prevents wrapping */
+  vertical-align: bottom; /* Keeps it aligned with the text */
 }
 
 .hero-cta {
@@ -129,7 +153,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: flex-end; /* Anchor to bottom initially */
-  transform: translateY(-5%); /* Move it a little up as requested */
+  transform: translateY(-15%); /* Moved it a bit more up */
 }
 
 .hero-image {

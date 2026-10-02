@@ -89,12 +89,13 @@ const Hero: React.FC = () => {
         <div className="shape shape-3"></div>
       </div>
       <div className="hero-bg-grid"></div>
+      <div className="hero-bg-blur"></div>
       
       <div className="container hero-container">
         <div className="hero-content">
           <h1 className="hero-title hero-anim">
             Developer. Engineer.<br />
-            Focusing on <span className="outline-text" ref={typedRef}></span>
+            Focusing on <span className="typed-wrapper"><span className="outline-text" ref={typedRef}></span></span>
           </h1>
           
           <div className="hero-cta hero-anim">
