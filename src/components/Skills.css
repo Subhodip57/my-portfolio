@@ -1,0 +1,38 @@
+.skills-3d-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+  width: 100%;
+  overflow: hidden;
+}
+
+.tagcloud-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* The TagCloud library injects inline styles but we can target the spans */
+.tagcloud {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.tagcloud--item {
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  transition: color 0.3s ease, text-shadow 0.3s ease, background 0.3s ease;
+  background: transparent;
+}
+
+.tagcloud--item:hover {
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+  background: rgba(255, 255, 255, 0.05);
+}

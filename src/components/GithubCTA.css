@@ -1,0 +1,30 @@
+.github-cta-box {
+  text-align: center;
+  padding: 4rem 2rem;
+  border-color: rgba(0, 255, 213, 0.2);
+  background: radial-gradient(circle at center, rgba(0,255,213,0.05) 0%, var(--card-background) 100%);
+}
+
+.cta-icon {
+  color: var(--text-primary);
+  margin-bottom: 1.5rem;
+}
+
+.cta-title {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.cta-text {
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+  font-size: 1.1rem;
+}
+
+.cta-handle {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}

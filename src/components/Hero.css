@@ -1,0 +1,238 @@
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: calc(var(--nav-height) + 3rem);
+  overflow: hidden;
+}
+
+.hero-bg-grid {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: 
+    linear-gradient(to right, var(--border) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 50px 50px;
+  mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+  -webkit-mask-image: radial-gradient(circle at center, black 0%, transparent 80%);
+  z-index: -1;
+  opacity: 0.3;
+}
+
+.hero-bg-shapes {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  overflow: hidden;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--accent);
+  filter: blur(80px);
+  opacity: 0.15;
+}
+
+.shape-1 { width: 300px; height: 300px; top: 10%; left: 20%; background: var(--accent); }
+.shape-2 { width: 400px; height: 400px; top: 60%; right: 10%; background: var(--text-primary); }
+.shape-3 { width: 250px; height: 250px; bottom: 10%; left: 40%; background: var(--text-secondary); }
+
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+  text-align: left;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.hero-content {
+  flex: 1;
+  max-width: 600px;
+  z-index: 2;
+}
+
+/* 
+  Replicating the massive, bold text structure from image_21a278.jpg 
+  while keeping the dark theme variables. 
+*/
+.hero-title {
+  font-size: clamp(3rem, 7vw, 6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 2.5rem;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  z-index: 2;
+}
+
+/* 
+  Mimics the visually distinct secondary text in the reference 
+  by using a transparent stroke effect suitable for dark themes.
+*/
+.outline-text {
+  color: transparent;
+  -webkit-text-stroke: 2px var(--text-secondary);
+  transition: all 0.3s ease;
+}
+
+.outline-text:hover {
+  -webkit-text-stroke: 2px var(--accent);
+  text-shadow: 0 0 20px var(--accent-glow);
+}
+
+.hero-cta {
+  margin-bottom: 3rem;
+  z-index: 2;
+}
+
+/* 
+  Minimalist pill-shaped button inspired by the reference layout. 
+*/
+.btn-pill {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+  font-family: var(--font-sans);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.btn-pill:hover {
+  background: var(--text-primary);
+  color: var(--bg-primary);
+  border-color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(255,255,255,0.1);
+}
+
+/* 
+  Anchors the portrait directly to the bottom of the viewport 
+*/
+.hero-image-container {
+  flex: 1;
+  width: 100%;
+  max-width: 700px; /* Increased from 550px for a larger image */
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; /* Anchor to bottom initially */
+  transform: translateY(-5%); /* Move it a little up as requested */
+}
+
+.hero-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  z-index: 2;
+  /* Grayscale filter to match the vibe of the reference, fading to color on hover */
+  filter: grayscale(100%) contrast(1.1) brightness(0.9);
+  transition: filter 0.5s ease;
+  /* Fades the bottom edge seamlessly into the dark background */
+  mask-image: linear-gradient(to top, transparent 0%, black 15%);
+  -webkit-mask-image: linear-gradient(to top, transparent 0%, black 15%);
+}
+
+.hero-image:hover {
+  filter: grayscale(0%) contrast(1) brightness(1);
+}
+
+.crown-wrapper {
+  position: absolute;
+  top: 4%; /* Moved a little up from 10% */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  width: 120px;
+  height: 120px;
+}
+
+.scribble-crown {
+  width: 100%;
+  height: 100%;
+  color: var(--accent);
+  filter: drop-shadow(0 0 10px var(--accent));
+  opacity: 0.9;
+  transform: rotate(-10deg);
+  transform-origin: center;
+}
+
+/* Adds a subtle cyber aesthetic behind your head */
+.cyber-glow-ring {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  border: 1px dashed var(--accent);
+  opacity: 0.2;
+  z-index: 1;
+  animation: rotateGlow 20s linear infinite;
+}
+
+@keyframes rotateGlow {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    padding-top: calc(var(--nav-height) + 1rem);
+    min-height: auto;
+  }
+  
+  .hero-container {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    gap: 2rem;
+    height: auto;
+    margin-top: 2rem;
+  }
+  
+  .hero-content {
+    flex: none;
+    width: 100%;
+  }
+
+  .hero-image-container {
+    flex: none;
+    justify-content: center;
+    max-width: 100%;
+    margin-top: 2rem;
+  }
+
+  .hero-image {
+    width: 80%;
+  }
+  
+  .hero-title {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+    margin-bottom: 1.5rem;
+  }
+
+  .cyber-glow-ring {
+    width: 300px;
+    height: 300px;
+  }
+  
+  .crown-wrapper {
+    width: 90px;
+    height: 90px;
+    top: 5%;
+  }
+}
